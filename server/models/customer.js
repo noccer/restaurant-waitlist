@@ -34,4 +34,6 @@ var CustomerSchema = new mongoose.Schema({
 });
 
 // Export the model.
-module.exports = mongoose.model('customer', CustomerSchema);
+ var Customer = mongoose.model('customer', CustomerSchema);
+
+module.exports = Customer;

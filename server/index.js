@@ -9,6 +9,22 @@ var _ = require('lodash');
 // Create the application.
 var app = express();
 
+// NOC: seed some data
+var Customer = require('./models/customer');
+
+// var d = new Date();
+// var n = d.getTime();
+// var seed_customer = new Customer({
+// 	name: 'Peter',
+// 	phone: '0412345678',
+//   is_vip: true,
+//   heads: 2,
+//   started_waiting: n,
+//   eta: 10,
+//   finished_waiting: n
+// });
+// Customer.create(seed_customer);
+
 // Add Middleware necessary for REST API's
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
