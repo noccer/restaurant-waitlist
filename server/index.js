@@ -30,7 +30,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(methodOverride('X-HTTP-Method-Override'));
 
-
 // CORS Support
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -44,13 +43,15 @@ app.use('/customer', function(req, res, next) {
   next();
 });
 
-
-
 app.use('/hello', function(req, res, next) {
   res.send('Hello World!');
   next();
 });
 
+// app.use('/', function(req, res) {
+//   req.customer.find({});
+//   res.send();
+// });
 
 // Connect to MongoDB
 mongoose.connect('mongodb://localhost/waiting_list');
@@ -64,7 +65,6 @@ mongoose.connection.once('open', function() {
     _.each(routes, function(controller, route) {
       app.use(route, controller(app, route));
   });
-
 
 console.log('Listening on port 3000...');
   app.listen(3000);
