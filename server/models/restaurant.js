@@ -2,7 +2,11 @@ var mongoose = require('mongoose');
 
 // Create the CustomerSchema.
 var RestaurantSchema = new mongoose.Schema({
-   name: {
+  createdBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  },
+   restaurantName: {
       type: String,
       required: true
    },

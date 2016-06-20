@@ -2,7 +2,11 @@ var mongoose = require('mongoose');
 
 // Create the CustomerSchema.
 var CustomerSchema = new mongoose.Schema({
-   name: {
+   createdBy: {
+     type: mongoose.Schema.Types.ObjectId,
+     ref: 'Restaurant'
+   },
+   customerName: {
       type: String,
       required: true
    },
@@ -10,7 +14,7 @@ var CustomerSchema = new mongoose.Schema({
       type: String,
       required: true
    },
-   is_vip: {
+   isVip: {
       type: Boolean,
       default: false
    },
@@ -18,7 +22,7 @@ var CustomerSchema = new mongoose.Schema({
       type: Number,
       required: true
    },
-   started_waiting: {
+   startedWaiting: {
       type: Date,
       default: Date.now,
       required: true
@@ -27,7 +31,7 @@ var CustomerSchema = new mongoose.Schema({
       type: Number,
       required: true
    },
-   finished_waiting: {
+   finishedWaiting: {
       type: Date,
       required: true
    }
